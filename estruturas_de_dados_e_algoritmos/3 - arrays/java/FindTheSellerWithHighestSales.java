@@ -17,22 +17,20 @@ public class FindTheSellerWithHighestSales {
     }
 
     private static Seller findTheSellerHighestSales(List<Seller> sellers) {
-        Seller max = new Seller("", 0.0);
-        Seller previous = new Seller("", 0.0);
+        int max = 0;
+        int previous = 0;
         int i = 0;
 
         while (i < sellers.size()) {
-            var seller = sellers.get(i);
-
-            if (previous.ammount < seller.ammount) {
-                max = seller;
+            if (sellers.get(previous).ammount < sellers.get(i).ammount) {
+                max = i;
                 previous = max;
             }
 
             i++;
         }
 
-        return max;
+        return sellers.get(max);
     }
 }
 
